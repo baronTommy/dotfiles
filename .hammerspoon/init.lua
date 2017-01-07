@@ -6,6 +6,33 @@ main.windowManager = require ('library/window_manager')
 main.windowManager.init()
 
 
+-- --
+-- スペース操作
+--   単体移動
+--     j:sdfe
+--     ?:qwertasdfgzxcvb
+--   ウィンドウも移動
+--     m:sdfe
+--     ?:qwertasdfgzxcvb
+--
+-- ウィンドウ操作
+--   フォーカス
+--     l:sdfe
+--
+--   画面サイズ
+--     k:sdfe
+--   画面サイズ フル
+--     k:d
+--
+--   ディスプレイ移動
+--     h:sdfe
+--
+-- 不要
+-- 画面端での[動作]繰り返し
+-- 最大化での[動作]繰り返し
+
+
+
 --------------------------------------------------------------------
 -- function main.windowUnfocused()
 --   main.windowManager.borderDelete()
