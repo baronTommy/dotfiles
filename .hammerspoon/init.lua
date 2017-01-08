@@ -53,16 +53,16 @@ main.windowManager.init()
 -- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'f', function() main.windowManager.focusWindow('R') end)
 -- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'e', function() main.windowManager.focusWindow('U') end)
 -- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'd', function() main.windowManager.focusWindow('D') end)
-
+--
 -- -- ウィンドウ移動
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 's', function() main.windowManager.moveWindow('L') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'f', function() main.windowManager.moveWindow('R') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'e', function() main.windowManager.moveWindow('U') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'd', function() main.windowManager.moveWindow('D') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'c', function() main.windowManager.moveWindow('MAX') end)
-
+-- hs.hotkey.bind({'cmd', 'shift'}, 's', function() main.windowManager.moveWindow('L') end)
+-- hs.hotkey.bind({'cmd', 'shift'}, 'f', function() main.windowManager.moveWindow('R') end)
+-- hs.hotkey.bind({'cmd', 'shift'}, 'e', function() main.windowManager.moveWindow('U') end)
+-- hs.hotkey.bind({'cmd', 'shift'}, 'd', function() main.windowManager.moveWindow('D') end)
+-- hs.hotkey.bind({'cmd', 'shift'}, 'c', function() main.windowManager.moveWindow('MAX') end)
+--
 -- -- ディスプレイ移動
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 's', function() main.windowManager.moveDisplayWindow('L') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'f', function() main.windowManager.moveDisplayWindow('R') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'e', function() main.windowManager.moveDisplayWindow('U') end)
--- hs.hotkey.bind({'cmd', 'alt', 'shift'}, 'd', function() main.windowManager.moveDisplayWindow('D') end)
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 's', function() main.windowManager.moveDisplayWindow('L') end)
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function() main.windowManager.moveDisplayWindow('R') end)
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'e', function() main.windowManager.moveDisplayWindow('U') end)
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'd', function() main.windowManager.moveDisplayWindow('D') end)

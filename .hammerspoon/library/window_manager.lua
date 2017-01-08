@@ -89,7 +89,7 @@ function windowManager.moveDisplayWindow(directionKey)
   end
 
   local fw = windowManager.getFocusedWindow()
-  fw['moveOneScreen' .. windowManager.direction[directionKey]](hoge)
+  fw['moveOneScreen' .. windowManager.direction[directionKey]](fw)
   windowManager.moveWindow('MAX')
 end
 
