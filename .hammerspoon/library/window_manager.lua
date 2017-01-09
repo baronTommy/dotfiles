@@ -1,7 +1,7 @@
 local windowManager = {}
 -- 枠線太さ
 windowManager.normalBorderWidth = 4
-windowManager.newBorderWidth = 20
+windowManager.newBorderWidth = 200
 
 -- ピカピカ
 windowManager.shinySpeed = 0.1
@@ -32,6 +32,9 @@ windowManager.newFocusedWindowFlg = nil
 -- ウィンドウ監視
 windowManager.windowWatcher = nil
 
+-- スペース監視
+windowManager.spacesWatcher = nil
+
 -- ウィンドウ方向 変換
 windowManager.direction = {
   U = 'North',
@@ -42,18 +45,28 @@ windowManager.direction = {
 -- public ------------------------------------------------
 function windowManager.init()
   windowManager.changeFocusedWindowEvent()
-
   -- フォーカスが外れた場合
   hs.window.filter.new(nil):subscribe(hs.window.filter.windowUnfocused, function () windowManager.unFocusedWindowEvent() end)
 
   -- ウィンドウ監視
   windowManager.windowWatcher = hs.timer.doEvery(windowManager.shinySpeed, windowManager.changeFocusedWindowEvent)
   windowManager.windowWatcher:start()
+
+  -- スペース監視
+  windowManager.spacesWatcher = hs.spaces.watcher.new(function() hs.timer.doAfter(0.5,function() windowManager.changeFocusedWindowEvent(true) end) end)
+  windowManager.spacesWatcher:start()
 end
 
 -- フォーカス変更イベント
-function windowManager.changeFocusedWindowEvent()
+function windowManager.changeFocusedWindowEvent(lazyFlg)
+  lazyFlg = lazyFlg or false
   windowManager.setNewFocusedWindowFlg()
+
+  if lazyFlg then
+    -- spaces移動などもっさりしたイベント様
+    windowManager.newFocusedWindowFlg = true
+  end
+
   windowManager.setFocusedWindow(hs.window.focusedWindow())
   windowManager.setTargetWindowCandidate(hs.window.filter.new():setCurrentSpace(true))
 
