@@ -102,8 +102,7 @@ function windowManager.moveDisplayWindow(directionKey)
   end
 
   local fw = windowManager.getFocusedWindow()
-  fw['moveOneScreen' .. windowManager.direction[directionKey]](fw)
-  windowManager.moveWindow('MAX')
+  fw['moveOneScreen' .. windowManager.direction[directionKey]](fw, true):maximize()
 end
 
 -- ウィンドウ移動
@@ -113,14 +112,27 @@ function windowManager.moveWindow(directionKey)
     return
   end
 
-  if directionKey == 'MAX' then
-    windowManager.getFocusedWindow():maximize()
-  else
-    local f = windowManager.getFocusedWindow():frame()
-    local max = windowManager.getFocusedWindow():screen():frame()
-    local setFrame = windowManager['getWindow' .. directionKey](f, max)
-    windowManager.getFocusedWindow():setFrame(setFrame)
+  -- 移動前ウィンドウ
+  local beforeWindowSize = windowManager.getFocusedWindowSize()
+
+  local max = windowManager.getFocusedWindow():screen():frame()
+  local setFrame = windowManager['getWindow' .. directionKey](max)
+  windowManager.getFocusedWindow():setFrame(setFrame)
+
+  -- 移動後ウィンドウ
+  local afterWindowSize = windowManager.getFocusedWindowSize()
+
+  if windowManager.checkMoveWindow(beforeWindowSize, afterWindowSize) then
+    return
   end
+
+  -- 移動先ディスプレイがある
+  local nextDisplay = windowManager.getFocusedWindow():screen()
+  if nextDisplay['to' .. windowManager.direction[directionKey]](nextDisplay) == nil then
+    return
+  end
+
+  windowManager.moveDisplayWindow(directionKey)
 end
 ----------------------------------------------
 
@@ -168,39 +180,53 @@ function windowManager.getBorderWidth()
 end
 
 -- ウィンドウ移動用座標
-function windowManager.getWindowL(f,max)
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h
-    return f
+function windowManager.getWindowL(max)
+    local coordinate = {}
+    coordinate.x = max.x
+    coordinate.y = max.y
+    coordinate.w = max.w / 2
+    coordinate.h = max.h
+    return coordinate
 end
 
 -- ウィンドウ移動用座標
-function windowManager.getWindowR(f,max)
-    f.x = max.x + (max.w / 2)
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h
-    return f
+function windowManager.getWindowR(max)
+    local coordinate = {}
+    coordinate.x = max.x + (max.w / 2)
+    coordinate.y = max.y
+    coordinate.w = max.w / 2
+    coordinate.h = max.h
+    return coordinate
 end
 
 -- ウィンドウ移動用座標
-function windowManager.getWindowU(f,max)
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w
-  f.h = max.h / 2
-  return f
+function windowManager.getWindowU(max)
+  local coordinate = {}
+  coordinate.x = max.x
+  coordinate.y = max.y
+  coordinate.w = max.w
+  coordinate.h = max.h / 2
+  return coordinate
 end
 
 -- ウィンドウ移動用座標
-function windowManager.getWindowD(f,max)
-  f.x = max.x
-  f.y = max.y +  (max.h / 2)
-  f.w = max.w
-  f.h = max.h / 2
-  return f
+function windowManager.getWindowD(max)
+  local coordinate = {}
+  coordinate.x = max.x
+  coordinate.y = max.y +  (max.h / 2)
+  coordinate.w = max.w
+  coordinate.h = max.h / 2
+  return coordinate
+end
+
+-- ウィンドウ移動用座標
+function windowManager.getWindowMAX(max)
+  local coordinate = {}
+  coordinate.x = max.x
+  coordinate.y = max.y
+  coordinate.w = max.w
+  coordinate.h = max.h
+  return coordinate
 end
 ------------------------------------------------------
 
@@ -259,6 +285,16 @@ function windowManager.setNewFocusedWindowFlg()
     return
   end
   windowManager.newFocusedWindowFlg = true
+end
+
+-- ウィンドウが移動したか
+function windowManager.checkMoveWindow (beforeWindowSize, afterWindowSize)
+  for k, v in pairs(beforeWindowSize) do
+    if v ~= afterWindowSize[k] then
+      return true
+    end
+  end
+  return false
 end
 ------------------------------------------------------
 
