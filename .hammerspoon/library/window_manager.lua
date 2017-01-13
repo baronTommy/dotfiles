@@ -124,7 +124,7 @@ function windowManager.moveWindow(directionKey)
   local setFrame = windowManager['getWindow' .. directionKey](max)
   windowManager.getFocusedWindow():setFrame(setFrame)
 
-  if not windowManager.checkMoveWindow(beforeWindowSize, windowManager['getWindowMAX'](max)) then
+  if directionKey == 'MAX' then
     -- 最大サイズ から 最大サイズ
     return
   end
