@@ -14,6 +14,7 @@ function libraryManager.getBorderColor()
   return borderColor
 end
 
+-- 枠線情報
 function libraryManager.borderInfo(borderObj, borderWidth)
   -- 塗りつぶし無し
   borderObj:setFill(false)
