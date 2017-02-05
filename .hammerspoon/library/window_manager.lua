@@ -1,4 +1,6 @@
 local windowManager = {}
+windowManager.libraryManager = require ('library/library_manager')
+
 -- 枠線太さ
 windowManager.normalBorderWidth = 4
 windowManager.newBorderWidth = 200
@@ -17,11 +19,6 @@ windowManager.focusedWindowSize = {}
 
 -- 枠線
 windowManager.borderObj = nil
-
--- 枠線の色のキー名
-windowManager.borderColorKeys = {
-  'red','blue','green'
-}
 
 -- 全ウィンドウ
 windowManager.allWindows = nil
@@ -163,15 +160,6 @@ function windowManager.getFocusedWindowBorder()
   return windowManager.borderObj
 end
 
--- 枠線色
-function windowManager.getBorderColor()
-  local borderColor = {}
-  for k, v in pairs(windowManager.borderColorKeys) do
-    borderColor[v] = math.random(0, 1)
-  end
-  return borderColor
-end
-
 -- 枠線幅
 function windowManager.getBorderWidth()
   if windowManager.newFocusedWindowFlg then
@@ -247,7 +235,7 @@ function windowManager.borderShow()
   -- 前回表自分があれば削除
   windowManager.borderDelete()
 
-  -- ウィンドウ情報無し
+  -- デスクトップは非表示
   if (hs.window.desktop() == windowManager.getFocusedWindow())then
     return false
   end
@@ -262,22 +250,14 @@ end
 
 -- 枠線削除
 function windowManager.borderDelete()
-  if windowManager.getFocusedWindowBorder() then
-    windowManager.getFocusedWindowBorder():delete()
-    return true
-  end
-  return false
+    windowManager.libraryManager.borderDelete(windowManager.getFocusedWindowBorder())
 end
 
 -- 枠線作成
-function windowManager.createFocusedWindowBorder(borderObj)
+function windowManager.createFocusedWindowBorder()
   -- 枠線サイズ
   windowManager.borderObj = hs.drawing.rectangle(hs.geometry.rect(windowManager.getFocusedWindowSize()))
-  -- 塗りつぶし無し
-  windowManager.borderObj:setFill(false)
-  -- 枠線幅
-  windowManager.borderObj:setStrokeWidth(windowManager.getBorderWidth())
-  windowManager.borderObj:setStrokeColor(windowManager.getBorderColor())
+  windowManager.libraryManager.borderInfo(windowManager.borderObj, windowManager.getBorderWidth())
 end
 
 -- フォーカスが変更された
