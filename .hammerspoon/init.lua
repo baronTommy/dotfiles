@@ -7,12 +7,6 @@ local main = {}
 main.windowManager = require ('library/window_manager')
 main.windowManager.init()
 
-main.mouseManager = require ('library/mouse_manager')
-main.mouseManager.init()
-
-
--- urlevent
-
 -- フォーカス移動
 hs.urlevent.bind("focusWindow", function(eventName, params)
   main.windowManager.focusWindow(params["directionKey"])
