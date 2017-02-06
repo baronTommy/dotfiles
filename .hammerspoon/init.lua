@@ -1,5 +1,7 @@
 -- ウィンドウ移動アニメーション
 hs.window.animationDuration = 0
+-- 次のウィンドウがあるかのチェックの制度をあげる
+hs.screen.strictScreenInDirection = true
 
 local main = {}
 main.windowManager = require ('library/window_manager')
