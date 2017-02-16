@@ -23,13 +23,11 @@ hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
 end)
 
 
-aaa = hs.eventtap.new({hs.eventtap.event.types.keyDown},
-  function(hsObj)
-    if (hsObj:getKeyCode() == 36) then
-      io.popen('afplay ~/Dropbox/BGM/typewriter/Lupin_the_Third/type10.mp3')
-    else
-      io.popen('afplay ~/Dropbox/BGM/typewriter/Lupin_the_Third/type0'..math.random(1, 9)..'.mp3')
-    end
-  end
-)
+
+
+
+function main.hoge()
+  io.popen('afplay ~/Dropbox/BGM/typewriter/Lupin_the_Third/type0'..math.random(1, 9)..'.mp3')
+end
+aaa = hs.eventtap.new({hs.eventtap.event.types.keyDown},main.hoge)
 aaa:start()
