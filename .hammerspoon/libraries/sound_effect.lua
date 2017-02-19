@@ -58,7 +58,6 @@ function soundEffectLibrary.soundEffect(type)
   if soundEffectLibrary.killCount > soundEffectLibrary.killCountMax then
     io.popen('killall afplay > /dev/null 2>&1 &')
     soundEffectLibrary.killCount = 0
-    print('ok')
   end
   io.popen('afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' > /dev/null 2>&1 &')
 end
