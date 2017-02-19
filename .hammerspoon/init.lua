@@ -1,33 +1,33 @@
+--------------------------------------------------------------------------------
 -- ウィンドウ移動アニメーション
 hs.window.animationDuration = 0
 -- 次のウィンドウがあるかのチェックの制度をあげる
 hs.screen.strictScreenInDirection = true
+--------------------------------------------------------------------------------
 
-local main = {}
-main.windowManager = require ('library/window_manager')
-main.windowManager.init()
+--------------------------------------------------------------------------------
+DEFAULT_FUNCTION = require ('libraries/default_function')
+SETTING = require ('settings/setting').getSetting()
 
--- フォーカス移動
-hs.urlevent.bind("focusWindow", function(eventName, params)
-  main.windowManager.focusWindow(params["directionKey"])
-end)
+SOUND_EFFECT = require ('libraries/sound_effect')
+SOUND_EFFECT.init(SETTING['sound_effect'])
+--------------------------------------------------------------------------------
 
--- ウィンドウ移動
-hs.urlevent.bind("moveWindow", function(eventName, params)
-  main.windowManager.moveWindow(params["directionKey"])
-end)
+-- --------------------------------------------------------------------------------
+require ('managers/window_manager').init()
+require ('managers/keyboard_manager').init()
+require ('managers/mouse_manager').init()
+-- --------------------------------------------------------------------------------
 
--- ディスプレイ移動
-hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
-  main.windowManager.moveDisplayWindow(params["directionKey"])
-end)
+SOUND_EFFECT.soundEffect('loadEnd')
 
+-- todo
 
+-- 効果音
+-- imeが日本語時
+-- タブ切り替え時
+-- カーソルやエンター
+-- 長時間連打のコンボ
 
-
-
-function main.hoge()
-  io.popen('afplay ~/Dropbox/BGM/typewriter/Lupin_the_Third/type0'..math.random(1, 9)..'.mp3')
-end
-aaa = hs.eventtap.new({hs.eventtap.event.types.keyDown},main.hoge)
-aaa:start()
+-- ウィンドウ操作
+-- ウィンドウループ移動
