@@ -9,6 +9,10 @@ soundEffectLibrary.theme = nil
 -- 効果音一覧
 soundEffectLibrary.targetList = {}
 
+-- kill 発動カウンタ
+soundEffectLibrary.killCount = 0
+soundEffectLibrary.killCountMax = 50
+
 function soundEffectLibrary.init(info)
   -- テーマ効果音ディレクトリ
   soundEffectLibrary.soundEffectPath = info['path']
@@ -50,8 +54,13 @@ function soundEffectLibrary.soundEffect(type)
     return value
   end
 
-  -- killall afplay; プロセスがまずい感じになる
-  io.popen('killall afplay; afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' & > /dev/null 2>&1 &')
+  soundEffectLibrary.killCount = soundEffectLibrary.killCount + 1
+  if soundEffectLibrary.killCount > soundEffectLibrary.killCountMax then
+    io.popen('killall afplay > /dev/null 2>&1 &')
+    soundEffectLibrary.killCount = 0
+    print('ok')
+  end
+  io.popen('afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' > /dev/null 2>&1 &')
 end
 
 return soundEffectLibrary
