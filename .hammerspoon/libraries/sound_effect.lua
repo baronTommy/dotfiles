@@ -50,7 +50,8 @@ function soundEffectLibrary.soundEffect(type)
     return value
   end
 
-  io.popen('afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' & > /dev/null 2>&1 &')
+  -- killall afplay; プロセスがまずい感じになる
+  io.popen('killall afplay; afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' & > /dev/null 2>&1 &')
 end
 
 return soundEffectLibrary
