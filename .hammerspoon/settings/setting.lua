@@ -5,7 +5,7 @@ function setting.getSetting()
   return {
       sound_effect = {
         -- 効果音ディレクトリ
-        path = '~/dotfiles/soundEffect/',
+        path = '~/dotfiles/sound_effect/',
 
         -- リロード時にthemeからランダムの場合は、true
         -- random = true
