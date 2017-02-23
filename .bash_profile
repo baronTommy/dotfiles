@@ -1,10 +1,13 @@
 # 設定ファイルパス
 export XDG_CONFIG_HOME=$HOME/.config
 
+# キャッシュパス
+export XDG_CONFIG_HOME=$HOME/.cache
+
 # pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="${HOME}/.pyenv"
+#export PATH="${PYENV_ROOT}/bin:$PATH"
+#eval "$(pyenv init -)"
 
 # # go
 # mkdir -p ~/go/third-party/bin
