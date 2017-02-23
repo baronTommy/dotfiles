@@ -18,3 +18,6 @@ export XDG_CACHE_HOME=$HOME/.cache
 #
 # # PATH
 # export PATH=$PATH:$GOPATH_THIRD_PARTY/bin:$GOPATH_MY_PROJECT/bin
+
+mkdir -p $XDG_CONFIG_HOME
+mkdir -p $XDG_CACHE_HOME
