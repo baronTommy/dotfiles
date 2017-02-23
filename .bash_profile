@@ -2,7 +2,7 @@
 export XDG_CONFIG_HOME=$HOME/.config
 
 # キャッシュパス
-export XDG_CONFIG_HOME=$HOME/.cache
+export XDG_CACHE_HOME=$HOME/.cache
 
 # pyenv
 #export PYENV_ROOT="${HOME}/.pyenv"
