@@ -10,7 +10,7 @@ function setting.getSetting()
         -- リロード時にthemeからランダムの場合は、true
         -- random = true
         -- 自分で選びたい時は、themeの値をセット
-        theme = 'sword',
+        theme = 'Lupin_the_Third',
       },
   }
 end
