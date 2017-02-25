@@ -59,7 +59,7 @@ function soundEffectLibrary.soundEffect(type)
     io.popen('killall afplay > /dev/null 2>&1 &')
     soundEffectLibrary.killCount = 0
   end
-  io.popen('afplay '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
+  io.popen('afplay -v 0.15 '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
 end
 
 return soundEffectLibrary

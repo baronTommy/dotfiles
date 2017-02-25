@@ -11,7 +11,7 @@ function setting.getSetting()
         theme = 'random'
 
         -- 自分で選びたい時は、themeの値をセット
-        theme = 'Lupin_the_Third',
+        -- theme = 'Lupin_the_Third',
       },
   }
 end
