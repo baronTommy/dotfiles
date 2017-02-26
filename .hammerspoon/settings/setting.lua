@@ -14,7 +14,7 @@ function setting.getSetting()
   return {
       soundEffect = {
         -- 効果音ディレクトリ
-        path = '~/dotfiles/sound_effect/',
+        path = '~/dotfiles/.hammerspoon/sound_effect/',
 
         -- リロード時にthemeからランダムの場合は、'random'
         -- 自分で選びたい時は、themeの値をセット
