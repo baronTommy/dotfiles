@@ -12,6 +12,10 @@ function mouseManager.init()
 
   mouseManager.HSRightMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.rightMouseDown},mouseManager.HSmouseClick)
   mouseManager.HSRightMouseWatcher:start()
+
+  mouseManager.HSOtherMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.otherMouseDown},mouseManager.HSmouseClick)
+  mouseManager.HSOtherMouseWatcher:start()
+
 end
 --------------------------------------------------------
 

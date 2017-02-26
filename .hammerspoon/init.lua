@@ -1,23 +1,26 @@
+-- setting
 --------------------------------------------------------------------------------
--- ウィンドウ移動アニメーション
-hs.window.animationDuration = 0
--- 次のウィンドウがあるかのチェックの制度をあげる
-hs.screen.strictScreenInDirection = true
+require ('settings/setting').init()
 --------------------------------------------------------------------------------
 
+-- global function
 --------------------------------------------------------------------------------
-DEFAULT_FUNCTION = require ('libraries/default_function')
 SETTING = require ('settings/setting').getSetting()
-
+DEFAULT_FUNCTION = require ('libraries/default_function')
 SOUND_EFFECT = require ('libraries/sound_effect')
-SOUND_EFFECT.init(SETTING['sound_effect'])
 --------------------------------------------------------------------------------
 
--- --------------------------------------------------------------------------------
-require ('managers/window_manager').init()
+-- global function init
+--------------------------------------------------------------------------------
+SOUND_EFFECT.init(SETTING['soundEffect'])
+--------------------------------------------------------------------------------
+
+-- 機能をロード
+--------------------------------------------------------------------------------
+require ('managers/window_manager').init(SETTING['windowManager'])
 require ('managers/keyboard_manager').init()
 require ('managers/mouse_manager').init()
--- --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 SOUND_EFFECT.soundEffect('loadEnd')
 
@@ -33,3 +36,4 @@ SOUND_EFFECT.soundEffect('loadEnd')
 -- ウィンドウループ移動
 
 -- タブ変更やウィンドウ変更などの処理前 & 処理後に 処理を入れる
+-- TextScrubのようなクリップボードに対しての正規表現

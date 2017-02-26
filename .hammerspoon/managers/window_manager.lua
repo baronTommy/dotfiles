@@ -1,11 +1,13 @@
 local windowManager = {}
 
--- 枠線太さ
-windowManager.normalBorderWidth = 4
-windowManager.newBorderWidth = 200
+-- 枠線太さ 通常
+windowManager.normalBorderWidth = nil
+
+-- 枠線太さ フォーカス変更時
+windowManager.newBorderWidth = nil
 
 -- ピカピカ
-windowManager.shinySpeed = 0.1
+windowManager.shinySpeed = nil
 
 -- 現在フォーカスがあるウィンドウ
 windowManager.focusedWindow = nil
@@ -44,8 +46,14 @@ windowManager.direction = {
   R = 'East',
 }
 -- public ------------------------------------------------
-function windowManager.init()
+function windowManager.init(settng)
+  windowManager.normalBorderWidth = settng['normalBorderWidth']
+  windowManager.newBorderWidth =  settng['newBorderWidth']
+  windowManager.shinySpeed =  settng['shinySpeed']
+
+  -- フォーカスセット
   windowManager.changeFocusedWindowEvent()
+
   -- フォーカスが外れた場合
   hs.window.filter.new(nil):subscribe(hs.window.filter.windowUnfocused, function () windowManager.unFocusedWindowEvent() end)
 
@@ -71,6 +79,7 @@ function windowManager.init()
   hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
     windowManager.moveDisplayWindow(params["directionKey"])
   end)
+
 end
 
 -- フォーカス変更イベント

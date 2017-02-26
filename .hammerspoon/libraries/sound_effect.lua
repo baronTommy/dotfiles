@@ -6,6 +6,9 @@ soundEffectLibrary.soundEffectPath = nil
 -- 効果音テーマ
 soundEffectLibrary.theme = nil
 
+-- 効果音volume
+soundEffectLibrary.volume = nil
+
 -- 効果音一覧
 soundEffectLibrary.targetList = {}
 
@@ -13,13 +16,13 @@ soundEffectLibrary.targetList = {}
 soundEffectLibrary.killCount = 0
 soundEffectLibrary.killCountMax = 50
 
-function soundEffectLibrary.init(info)
-  -- テーマ効果音ディレクトリ
-  soundEffectLibrary.soundEffectPath = info['path']
-  soundEffectLibrary.theme = info['theme']
+function soundEffectLibrary.init(settng)
+  soundEffectLibrary.soundEffectPath = settng['path']
+  soundEffectLibrary.theme = settng['theme']
+  soundEffectLibrary.volume = settng['volume']
 
   -- テーマセット
-  if info['theme'] == 'random' then
+  if settng['theme'] == 'random' then
     local key = math.random(1, #DEFAULT_FUNCTION.getLsTable(soundEffectLibrary.soundEffectPath))
     for k,v in pairs(DEFAULT_FUNCTION.getLsTable(soundEffectLibrary.soundEffectPath)) do
       if k == key then
@@ -59,7 +62,7 @@ function soundEffectLibrary.soundEffect(type)
     io.popen('killall afplay > /dev/null 2>&1 &')
     soundEffectLibrary.killCount = 0
   end
-  io.popen('afplay -v 0.15 '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
+  io.popen('afplay -v '..soundEffectLibrary.volume..' '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
 end
 
 return soundEffectLibrary
