@@ -48,8 +48,8 @@ windowManager.direction = {
 -- public ------------------------------------------------
 function windowManager.init(settng)
   windowManager.normalBorderWidth = settng['normalBorderWidth']
-  windowManager.newBorderWidth =  settng['newBorderWidth']
-  windowManager.shinySpeed =  settng['shinySpeed']
+  windowManager.newBorderWidth = settng['newBorderWidth']
+  windowManager.shinySpeed = settng['shinySpeed']
 
   -- フォーカスセット
   windowManager.changeFocusedWindowEvent()
@@ -67,18 +67,18 @@ function windowManager.init(settng)
 
   -- フォーカス移動
   hs.urlevent.bind("focusWindow", function(eventName, params)
-    windowManager.focusWindow(params["directionKey"])
-  end)
+      windowManager.focusWindow(params["directionKey"])
+    end)
 
   -- ウィンドウ移動
   hs.urlevent.bind("moveWindow", function(eventName, params)
-    windowManager.moveWindow(params["directionKey"])
-  end)
+      windowManager.moveWindow(params["directionKey"])
+    end)
 
   -- ディスプレイ移動
   hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
-    windowManager.moveDisplayWindow(params["directionKey"])
-  end)
+      windowManager.moveDisplayWindow(params["directionKey"])
+    end)
 
 end
 
@@ -116,7 +116,7 @@ end
 function windowManager.focusWindow(directionKey)
   windowManager.changeFocusedWindowEvent()
   if windowManager.getTargetWindowCandidate() == nil then
-      return
+    return
   end
 
   local tw = windowManager.getTargetWindowCandidate()
