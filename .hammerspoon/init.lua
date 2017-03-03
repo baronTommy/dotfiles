@@ -1,13 +1,16 @@
+local init = {}
+
 -- setting
 --------------------------------------------------------------------------------
-require ('settings/setting').init()
+init.setting = require('settings/setting')
+init.setting.init()
 --------------------------------------------------------------------------------
 
 -- global function
 --------------------------------------------------------------------------------
-SETTING = require ('settings/setting').getSetting()
-DEFAULT_FUNCTION = require ('libraries/default_function')
-SOUND_EFFECT = require ('libraries/sound_effect')
+SETTING = init.setting.getSetting()
+DEFAULT_FUNCTION = require('libraries/default_function')
+SOUND_EFFECT = require('libraries/sound_effect')
 --------------------------------------------------------------------------------
 
 -- global function init
@@ -17,11 +20,31 @@ SOUND_EFFECT.init(SETTING['soundEffect'])
 
 -- 機能をロード
 --------------------------------------------------------------------------------
-require ('managers/window_manager').init(SETTING['windowManager'])
-require ('managers/keyboard_manager').init()
-require ('managers/mouse_manager').init()
+init.windowManager = require('managers/window_manager')
+init.windowManager.init(SETTING['windowManager'])
+require('managers/keyboard_manager').init()
+require('managers/mouse_manager').init()
 --------------------------------------------------------------------------------
 
+-- urlevent
+------------------------------------------------------------------------------
+-- フォーカス移動
+hs.urlevent.bind("focusWindow", function(eventName, params)
+    init.windowManager.focusWindow(params["directionKey"])
+  end)
+
+-- ウィンドウ移動
+hs.urlevent.bind("moveWindow", function(eventName, params)
+    init.windowManager.moveWindow(params["directionKey"])
+  end)
+
+-- ディスプレイ移動
+hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
+    init.windowManager.moveDisplayWindow(params["directionKey"])
+  end)
+------------------------------------------------------------------------------
+
+hs.alert.show('loadEnd')
 SOUND_EFFECT.soundEffect('loadEnd')
 
 -- todo

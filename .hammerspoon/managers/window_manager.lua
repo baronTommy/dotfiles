@@ -45,6 +45,11 @@ windowManager.direction = {
   L = 'West',
   R = 'East',
 }
+
+function windowManager.hoge()
+  print('ok')
+end
+
 -- public ------------------------------------------------
 function windowManager.init(settng)
   windowManager.normalBorderWidth = settng['normalBorderWidth']
@@ -64,22 +69,6 @@ function windowManager.init(settng)
   -- スペース監視
   windowManager.spacesWatcher = hs.spaces.watcher.new(function() hs.timer.doAfter(0.5,function() windowManager.changeFocusedWindowEvent(true) end) end)
   windowManager.spacesWatcher:start()
-
-  -- フォーカス移動
-  hs.urlevent.bind("focusWindow", function(eventName, params)
-      windowManager.focusWindow(params["directionKey"])
-    end)
-
-  -- ウィンドウ移動
-  hs.urlevent.bind("moveWindow", function(eventName, params)
-      windowManager.moveWindow(params["directionKey"])
-    end)
-
-  -- ディスプレイ移動
-  hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
-      windowManager.moveDisplayWindow(params["directionKey"])
-    end)
-
 end
 
 -- フォーカス変更イベント
