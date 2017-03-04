@@ -46,10 +46,6 @@ windowManager.direction = {
   R = 'East',
 }
 
-function windowManager.hoge()
-  print('ok')
-end
-
 -- public ------------------------------------------------
 function windowManager.init(settng)
   windowManager.normalBorderWidth = settng['normalBorderWidth']
