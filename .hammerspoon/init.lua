@@ -1,20 +1,16 @@
 local init = {}
 
--- setting
+-- setting load
 --------------------------------------------------------------------------------
 init.setting = require('settings/setting')
 init.setting.init()
 --------------------------------------------------------------------------------
 
--- global function
+-- global
 --------------------------------------------------------------------------------
 SETTING = init.setting.getSetting()
 DEFAULT_FUNCTION = require('libraries/default_function')
 SOUND_EFFECT = require('libraries/sound_effect')
---------------------------------------------------------------------------------
-
--- global function init
---------------------------------------------------------------------------------
 SOUND_EFFECT.init(SETTING['soundEffect'])
 --------------------------------------------------------------------------------
 
@@ -28,41 +24,30 @@ require('managers/mouse_manager').init()
 
 -- urlevent
 ------------------------------------------------------------------------------
--- フォーカス移動
-hs.urlevent.bind("focusWindow", function(eventName, params)
-    init.windowManager.focusWindow(params["directionKey"])
-  end)
-
--- ウィンドウ移動
-hs.urlevent.bind("moveWindow", function(eventName, params)
-    init.windowManager.moveWindow(params["directionKey"])
-  end)
-
--- ディスプレイ移動
-hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
-    init.windowManager.moveDisplayWindow(params["directionKey"])
-  end)
+require('managers/urlevent_manager').init(init)
 ------------------------------------------------------------------------------
 
+-- loadEnd
 ------------------------------------------------------------------------------
 SOUND_EFFECT.soundEffect('loadEnd')
 
-s = [[
+hs.alert.show(
+[[
 
-私のスピードに
-　-= ∧＿∧
--=と(´･ω･`)　ｼｭﾀｯ
-　-=/　と_ノ
--=_/／⌒ｿ
+    私のスピードに
+    　-= ∧＿∧
+    -=と(´･ω･`)　ｼｭﾀｯ
+    　-=/　と_ノ
+    -=_/／⌒ｿ
 
-ついてこれるかな？
-∧＿∧ =-
-(´･ω･`)`つ=-　ｻﾞｻﾞｯ
-　`つ \ =-
-　\,⌒＼\,,,_=-
+    ついてこれるかな？
+     ∧＿∧ =-
+    (´･ω･`)`つ=-　ｻﾞｻﾞｯ
+    　`つ \ =-
+    　\,⌒＼\,,,_=-
 
 ]]
-hs.alert.show(s)
+)
 ------------------------------------------------------------------------------
 
 -- todo
@@ -80,3 +65,4 @@ hs.alert.show(s)
 -- TextScrubのようなクリップボードに対しての正規表現
 
 -- マウスジャンプ 左のキーでざっくり
+-- alert でクリップボードとかの通知
