@@ -29,11 +29,11 @@ function eventWatchManager.init(manager)
   eventWatchManager.HSKeyEventDownWatcher = hs.eventtap.new({hs.eventtap.event.types.keyDown},eventWatchManager.HSKeyEventDown)
   eventWatchManager.HSKeyEventDownWatcher:start()
 
-  mouseManager.HSLeftMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown},mouseManager.HSmouseLClick)
-  mouseManager.HSLeftMouseWatcher:start()
+  eventWatchManager.HSLeftMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown},eventWatchManager.HSmouseLClick)
+  eventWatchManager.HSLeftMouseWatcher:start()
 
-  mouseManager.HSRightMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.rightMouseDown},mouseManager.HSmouseRClick)
-  mouseManager.HSRightMouseWatcher:start()
+  eventWatchManager.HSRightMouseWatcher = hs.eventtap.new({hs.eventtap.event.types.rightMouseDown},eventWatchManager.HSmouseRClick)
+  eventWatchManager.HSRightMouseWatcher:start()
 end
 --------------------------------------------------------------------------------
 
@@ -54,12 +54,12 @@ function eventWatchManager.HSKeyEventDown (HSObj)
 end
 
 -- 左クリック
-function mouseManager.HSmouseLClick (HSObj)
+function eventWatchManager.HSmouseLClick (HSObj)
   EVENT.mouseLClick(HSObj)
 end
 
 -- 右クリック
-function mouseManager.HSmouseRClick (HSObj)
+function eventWatchManager.HSmouseRClick (HSObj)
   EVENT.mouseRClick(HSObj)
 end
 --------------------------------------------------------------------------------

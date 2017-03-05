@@ -40,6 +40,9 @@ EVENT.loadEnd()
 
 -- todo
 
+-- focusManager コメント削除
+-- スペース監視
+
 -- 効果音
 -- imeが日本語時
 -- タブ切り替え時
