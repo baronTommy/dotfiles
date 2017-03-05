@@ -1,14 +1,5 @@
 local soundEffectLibrary = {}
 
--- 効果音パス
-soundEffectLibrary.soundEffectPath = nil
-
--- 効果音テーマ
-soundEffectLibrary.theme = nil
-
--- 効果音volume
-soundEffectLibrary.volume = nil
-
 -- 効果音一覧
 soundEffectLibrary.targetList = {}
 
@@ -16,23 +7,21 @@ soundEffectLibrary.targetList = {}
 soundEffectLibrary.killCount = 0
 soundEffectLibrary.killCountMax = 50
 
-function soundEffectLibrary.init(settng)
-  soundEffectLibrary.soundEffectPath = settng['path']
-  soundEffectLibrary.theme = settng['theme']
-  soundEffectLibrary.volume = settng['volume']
-
+-- public
+--------------------------------------------------------------------------------
+function soundEffectLibrary.init()
   -- テーマセット
-  if settng['theme'] == 'random' then
-    local key = math.random(1, #DEFAULT_FUNCTION.getLsTable(soundEffectLibrary.soundEffectPath))
-    for k,v in pairs(DEFAULT_FUNCTION.getLsTable(soundEffectLibrary.soundEffectPath)) do
+  if SETTING['soundEffect']['theme'] == 'random' then
+    local key = math.random(1, #DEFAULT_FUNCTION.getLsTable(SETTING['soundEffect']['path']))
+    for k,v in pairs(DEFAULT_FUNCTION.getLsTable(SETTING['soundEffect']['path'])) do
       if k == key then
-        soundEffectLibrary.theme = v
+        SETTING['soundEffect']['theme'] = v
       end
     end
   end
 
   -- 対象ディレクトリの効果音をtable化
-  local path = soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'
+  local path = SETTING['soundEffect']['path']..SETTING['soundEffect']['theme']..'/'
   for k,directory in pairs(DEFAULT_FUNCTION.getLsTable(path)) do
     table.insert(soundEffectLibrary.targetList, directory)
     soundEffectLibrary.targetList[directory] = {}
@@ -43,7 +32,8 @@ function soundEffectLibrary.init(settng)
 
 end
 
--- 効果音を慣らす
+
+-- 効果音を鳴らす
 function soundEffectLibrary.soundEffect(type)
   local soundFlg = false
   for k, v in pairs(soundEffectLibrary.targetList) do
@@ -59,10 +49,12 @@ function soundEffectLibrary.soundEffect(type)
 
   soundEffectLibrary.killCount = soundEffectLibrary.killCount + 1
   if soundEffectLibrary.killCount > soundEffectLibrary.killCountMax then
-    io.popen('killall afplay > /dev/null 2>&1 &')
     soundEffectLibrary.killCount = 0
+    DEFAULT_FUNCTION.shell(SETTING['soundEffect']['kill'])
   end
-  io.popen('afplay -v '..soundEffectLibrary.volume..' '..soundEffectLibrary.soundEffectPath..soundEffectLibrary.theme..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
+
+  DEFAULT_FUNCTION.shell('afplay -v '..SETTING['soundEffect']['volume']..' '..SETTING['soundEffect']['path']..SETTING['soundEffect']['theme']..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
 end
+--------------------------------------------------------------------------------
 
 return soundEffectLibrary

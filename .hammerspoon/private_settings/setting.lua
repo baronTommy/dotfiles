@@ -13,15 +13,18 @@ end
 -- 設定情報リターン
 function setting.getSetting()
   return {
-    myEvent = {
-      newFocusedWindowEventON = [[ osascript -e 'tell application "xHazeOver" to set intensity to 100' ]],
-      newFocusedWindowEventOFF = [[ osascript -e 'tell application "xHazeOver" to set intensity to 0' ]],
-    }
+    event = {
+      newFocusedWindowEventON = [[ osascript -e 'tell application "HazeOver" to set intensity to 70' ]],
+      newFocusedWindowEventOFF = [[ osascript -e 'tell application "HazeOver" to set intensity to 0' ]],
+    },
 
     -- 効果音関連
     soundEffect = {
       -- 効果音ディレクトリ
       path = '~/dotfiles/.hammerspoon/sound_effect/',
+
+      -- 長押し対応
+      kill = [['killall afplay > /dev/null 2>&1 &']],
 
       -- リロード時にthemeからランダムの場合は、'random'
       -- 自分で選びたい時は、themeの値をセット

@@ -1,11 +1,11 @@
 local urleventManager = {}
 
-
--- public ------------------------------------------------
+-- public
+--------------------------------------------------------------------------------
 function urleventManager.init(init)
   -- フォーカス移動
   hs.urlevent.bind("focusWindow", function(eventName, params)
-      init.windowManager.focusWindow(params["directionKey"])
+      init.focusManager.focusWindow(params["directionKey"])
     end)
 
   -- ウィンドウ移動
@@ -18,6 +18,6 @@ function urleventManager.init(init)
       init.windowManager.moveDisplayWindow(params["directionKey"])
     end)
 end
---------------------------------------------------------
+--------------------------------------------------------------------------------
 
 return urleventManager

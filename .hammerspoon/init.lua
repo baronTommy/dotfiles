@@ -2,52 +2,40 @@ local init = {}
 
 -- setting load
 --------------------------------------------------------------------------------
-init.setting = require('settings/setting')
+init.setting = require('private_settings/setting')
 init.setting.init()
 --------------------------------------------------------------------------------
 
 -- global
 --------------------------------------------------------------------------------
 SETTING = init.setting.getSetting()
+
 DEFAULT_FUNCTION = require('libraries/default_function')
+
 SOUND_EFFECT = require('libraries/sound_effect')
-SOUND_EFFECT.init(SETTING['soundEffect'])
+SOUND_EFFECT.init()
+
+DRAWING = require('libraries/drawing')
+
+EVENT = require('private_settings/event')
+EVENT.init()
 --------------------------------------------------------------------------------
 
 -- 機能をロード
 --------------------------------------------------------------------------------
 init.windowManager = require('managers/window_manager')
-init.windowManager.init(SETTING['windowManager'])
-require('managers/keyboard_manager').init()
-require('managers/mouse_manager').init()
+init.focusManager = require('managers/focus_manager')
 --------------------------------------------------------------------------------
 
--- urlevent
+-- 他のmanagerに依存
 ------------------------------------------------------------------------------
+require('managers/event_watch_manager').init(init)
 require('managers/urlevent_manager').init(init)
 ------------------------------------------------------------------------------
 
 -- loadEnd
 ------------------------------------------------------------------------------
-SOUND_EFFECT.soundEffect('loadEnd')
-
-hs.alert.show(
-[[
-
-    私のスピードに
-    　-= ∧＿∧
-    -=と(´･ω･`)　ｼｭﾀｯ
-    　-=/　と_ノ
-    -=_/／⌒ｿ
-
-    ついてこれるかな？
-     ∧＿∧ =-
-    (´･ω･`)`つ=-　ｻﾞｻﾞｯ
-    　`つ \ =-
-    　\,⌒＼\,,,_=-
-
-]]
-)
+EVENT.loadEnd()
 ------------------------------------------------------------------------------
 
 -- todo
@@ -58,8 +46,9 @@ hs.alert.show(
 -- カーソルやエンター
 -- 長時間連打のコンボ
 
--- ウィンドウ操作
--- ウィンドウループ移動
+-- alt tab
+-- http://www.hammerspoon.org/docs/hs.window.switcher.html
+-- http://www.hammerspoon.org/docs/hs.expose.html
 
 -- タブ変更やウィンドウ変更などの処理前 & 処理後に 処理を入れる
 -- TextScrubのようなクリップボードに対しての正規表現
