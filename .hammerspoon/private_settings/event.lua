@@ -15,13 +15,12 @@ function event.crone(newFocusedWindowListener)
   end
 end
 
--- フォーカス変更時
-function event.newFocusedWindow()
-  DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventON'])
+-- スペース監視
+function event.spaces()
+end
 
-  hs.timer.doAfter(0.2,function()
-    DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventOFF'])
-  end)
+-- フォーカスチェンジ無し
+function event.noChangeFocus()
 end
 
 -- キーダウン
@@ -43,6 +42,15 @@ end
 function event.loadEnd()
   SOUND_EFFECT.soundEffect('loadEnd')
   hs.alert.show(AA['loadEnd'])
+end
+
+-- フォーカス変更時
+function event.newFocusedWindow()
+  DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventON'])
+
+  hs.timer.doAfter(SETTING['event']['newFocusedWindowEventOFFDoAfterTime'], function()
+    DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventOFF'])
+  end)
 end
 
 return event

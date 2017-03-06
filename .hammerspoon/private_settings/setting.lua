@@ -14,8 +14,10 @@ end
 function setting.getSetting()
   return {
     event = {
-      newFocusedWindowEventON = [[ osascript -e 'tell application "HazeOver" to set intensity to 70' ]],
-      newFocusedWindowEventOFF = [[ osascript -e 'tell application "HazeOver" to set intensity to 0' ]],
+      newFocusedWindowEventON = [[ osascript -e 'tell application "HazeOver" to set intensity to 85' & ]],
+      newFocusedWindowEventOFF = [[ osascript -e 'tell application "HazeOver" to set intensity to 0' & ]],
+      -- 全て明るくするまでの時間
+      newFocusedWindowEventOFFDoAfterTime = 0.5,
     },
 
     -- 効果音関連

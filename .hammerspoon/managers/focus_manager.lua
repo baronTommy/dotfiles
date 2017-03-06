@@ -40,11 +40,14 @@ focusManager.previousFocusedWindow = nil
 --------------------------------------------------------------------------------
 -- フォーカス移動
 function focusManager.focusWindow(directionKey)
-  local focusedWindow = DEFAULT_FUNCTION.getFocusedWindow()
-  if focusedWindow == nil then
+  local beforeFocusedWindow = DEFAULT_FUNCTION.getFocusedWindow()
+  if beforeFocusedWindow == nil then
     return
   end
-  focusedWindow['focusWindow' .. DEFAULT_FUNCTION.conversionDirection(directionKey)](focusedWindow, nil, true, true)
+  beforeFocusedWindow['focusWindow' .. DEFAULT_FUNCTION.conversionDirection(directionKey)](beforeFocusedWindow, nil, true, true)
+
+  if DEFAULT_FUNCTION.checkfocusMove(directionKey, beforeFocusedWindow) then
+  end
 end
 
 -- フォーカスウィンドウ変更処理

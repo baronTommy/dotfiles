@@ -105,7 +105,7 @@ function defaultFunction.checkMoveWindow (baseWindowSize)
   return false
 end
 
--- 別ディスプレイへ移動させるか
+-- 隣のディスプレイへ移動するか?
 function defaultFunction.checkMoveDisplayWindow(directionKey, beforeWindowSize)
   if directionKey == 'MAX' then
     -- 最大サイズ から 最大サイズ
@@ -118,6 +118,17 @@ function defaultFunction.checkMoveDisplayWindow(directionKey, beforeWindowSize)
   end
 
   return true
+end
+
+-- フォーカスが移動したか
+function defaultFunction.checkfocusMove(directionKey, beforeFocusedWindow)
+  if beforeFocusedWindow == defaultFunction.getFocusedWindow() then
+    -- 移動無し
+    return false
+  end
+
+  return true
+
 end
 
 -- コマンド実行
