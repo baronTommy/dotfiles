@@ -1,11 +1,9 @@
 local event = {}
 
--- フォーカス変更があった
-event.newFocusedWindowFlg = false
-
 -- ユーザー設定
 function event.init()
   AA = require('private_settings/private/aa').getData()
+  privateFunction = require('private_settings/private/private_function')
 end
 
 -- 定期処理
@@ -29,15 +27,13 @@ end
 -- キーダウン
 function event.keyDown(HSObj)
   SOUND_EFFECT.soundEffect('keyDown')
-  if event.newFocusedWindowFlg then
-    DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventOFF'])
-  end
-  event.newFocusedWindowFlg = false
+  privateFunction.focusLightOff()
 end
 
 -- 左クリック
 function event.mouseLClick(HSObj)
   SOUND_EFFECT.soundEffect('mouse')
+  privateFunction.focusLightOff()
 end
 
 -- 右クリック
@@ -53,8 +49,7 @@ end
 
 -- フォーカス変更時
 function event.newFocusedWindow()
-  event.newFocusedWindowFlg = true
-  DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventON'])
+  privateFunction.focusLightOn()
 end
 
 return event
