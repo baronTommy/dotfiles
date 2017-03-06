@@ -54,3 +54,4 @@ EVENT.loadEnd()
 
 -- マウスジャンプ 左のキーでざっくり
 -- alert でクリップボードとかの通知
+-- HazeOverやめてdrawingでがんばる
