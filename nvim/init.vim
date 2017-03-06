@@ -12,3 +12,24 @@ endif
 
 " deinを実行パスに追加
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
+
+" dein管理対象プラグイン
+let s:dein_toml = $XDG_CONFIG_HOME . '/nvim/toml/dein.toml'
+let s:dein_lazy_toml = $XDG_CONFIG_HOME .'/nvim/toml/dein_lazy.toml'
+
+" deinロード
+if dein#load_state(s:dein_dir)
+
+  call dein#begin(s:dein_dir)
+
+  call dein#load_toml(s:dein_toml, {'lazy': 0})
+  call dein#load_toml(s:dein_lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" dein管理対象をインストール
+if dein#check_install()
+  call dein#install()
+endif
