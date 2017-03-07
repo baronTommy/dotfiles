@@ -52,4 +52,9 @@ function event.newFocusedWindow()
   privateFunction.focusLightOn()
 end
 
+-- マウスムーブ時
+function event.movedMouse()
+  privateFunction.focusLightOff()
+end
+
 return event
