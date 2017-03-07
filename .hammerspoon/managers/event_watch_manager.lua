@@ -23,8 +23,8 @@ function eventWatchManager.init(manager)
   eventWatchManager.crone = hs.timer.doEvery(SETTING['eventWatchManager']['watcherInterval'], eventWatchManager.crone)
   eventWatchManager.crone:start()
 
-  -- eventWatchManager.spacesWatcher = hs.spaces.watcher.new(function() hs.timer.doAfter(eventWatchManager.spacesWatcherLazyTimeShinySpeed,function() eventWatchManager.spaces() end) end)
-  -- eventWatchManager.spacesWatcher:start()
+  eventWatchManager.spacesWatcher = hs.spaces.watcher.new( function() eventWatchManager.spaces() end)
+  eventWatchManager.spacesWatcher:start()
 
   eventWatchManager.HSKeyEventDownWatcher = hs.eventtap.new({hs.eventtap.event.types.keyDown},eventWatchManager.HSKeyEventDown)
   eventWatchManager.HSKeyEventDownWatcher:start()
@@ -46,6 +46,7 @@ end
 
 -- スペース監視
 function eventWatchManager.spaces()
+  EVENT.spaces()
 end
 
 -- キーダウン監視

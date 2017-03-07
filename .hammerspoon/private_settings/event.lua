@@ -3,6 +3,7 @@ local event = {}
 -- ユーザー設定
 function event.init()
   AA = require('private_settings/private/aa').getData()
+  privateFunction = require('private_settings/private/private_function')
 end
 
 -- 定期処理
@@ -15,23 +16,24 @@ function event.crone(newFocusedWindowListener)
   end
 end
 
--- フォーカス変更時
-function event.newFocusedWindow()
-  DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventON'])
+-- スペース監視
+function event.spaces()
+end
 
-  hs.timer.doAfter(0.2,function()
-    DEFAULT_FUNCTION.shell(SETTING['event']['newFocusedWindowEventOFF'])
-  end)
+-- フォーカスチェンジ無し
+function event.noChangeFocus()
 end
 
 -- キーダウン
 function event.keyDown(HSObj)
   SOUND_EFFECT.soundEffect('keyDown')
+  privateFunction.focusLightOff()
 end
 
 -- 左クリック
 function event.mouseLClick(HSObj)
   SOUND_EFFECT.soundEffect('mouse')
+  privateFunction.focusLightOff()
 end
 
 -- 右クリック
@@ -43,6 +45,11 @@ end
 function event.loadEnd()
   SOUND_EFFECT.soundEffect('loadEnd')
   hs.alert.show(AA['loadEnd'])
+end
+
+-- フォーカス変更時
+function event.newFocusedWindow()
+  privateFunction.focusLightOn()
 end
 
 return event
