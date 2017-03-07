@@ -1,2 +1,4 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+# 初回はこのコマンド
+# :UpdateRemotePlugins
