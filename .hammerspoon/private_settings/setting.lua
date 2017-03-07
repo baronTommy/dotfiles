@@ -31,7 +31,8 @@ function setting.getSetting()
       -- リロード時にthemeからランダムの場合は、'random'
       -- 自分で選びたい時は、themeの値をセット
       -- theme = 'Lupin_the_Third',
-      theme = 'random',
+      -- theme = 'random',
+      theme = 'mario',
 
       -- 効果音volume
       volume = '0.15'

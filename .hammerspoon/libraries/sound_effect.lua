@@ -53,7 +53,7 @@ function soundEffectLibrary.soundEffect(type)
     DEFAULT_FUNCTION.shell(SETTING['soundEffect']['kill'])
   end
 
-  DEFAULT_FUNCTION.shell('afplay -v '..SETTING['soundEffect']['volume']..' '..SETTING['soundEffect']['path']..SETTING['soundEffect']['theme']..'/'..type..'/'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..' &')
+  DEFAULT_FUNCTION.shell('afplay -v '..SETTING['soundEffect']['volume']..' '..SETTING['soundEffect']['path']..SETTING['soundEffect']['theme']..'/'..type..'/"'..soundEffectLibrary.targetList[type][math.random(1, #soundEffectLibrary.targetList[type])]..'" &')
 end
 --------------------------------------------------------------------------------
 
