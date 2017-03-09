@@ -10,10 +10,7 @@ end
 function event.crone(newFocusedWindowListener)
   -- 新規フォーカスチェック用
   newFocusedWindowListener()
-
-  if (hs.window.desktop() ~= DEFAULT_FUNCTION.getFocusedWindow())then
-    DRAWING.updateDrawing()
-  end
+  DRAWING.reDrawing()
 end
 
 -- スペース監視

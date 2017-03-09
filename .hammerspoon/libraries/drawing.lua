@@ -9,7 +9,35 @@ drawing.drawingColorKeys = {
 
 -- public
 --------------------------------------------------------------------------------
--- 枠線表示
+-- 枠線削除 & 枠線表示
+function drawing.reDrawing()
+  -- 枠線削除
+  drawing.delete(drawing.object)
+
+  local fw = DEFAULT_FUNCTION.getFocusedWindow()
+  if fw == nil then
+    -- 対象ウィンドウ無し
+    return false
+  end
+
+  if fw == hs.window.desktop()then
+    -- デスクトップ
+    return false
+  end
+
+  -- 枠線作成
+  drawing.drawingObject = drawing.createDrawngObject(
+    DEFAULT_FUNCTION.getWindowSize(),
+    SETTING['drawing']['normalBorderWidth'],
+    drawing.getRandomBorderColor()
+  )
+
+  -- 枠線表示
+  drawing.show(drawing.object)
+end
+
+--------------------------------------------------------------------------------
+-- 枠線作成
 function drawing.createDrawngObject(drawingSize, width, color)
 
   -- 枠線サイズ
@@ -49,28 +77,6 @@ function drawing.getRandomBorderColor()
   end
   return borderColor
 end
-
--- 枠線削除 & 枠線表示
-function drawing.updateDrawing()
-  -- 枠線削除
-  drawing.delete(drawing.object)
-
-  if DEFAULT_FUNCTION.getFocusedWindow() == nil then
-    -- 対象ウィンドウ無し
-    return false
-  end
-
-  -- 枠線作成
-  drawing.drawingObject = drawing.createDrawngObject(
-    DEFAULT_FUNCTION.getWindowSize(),
-    SETTING['drawing']['normalBorderWidth'],
-    drawing.getRandomBorderColor()
-  )
-
-  -- 枠線表示
-  drawing.show(drawing.object)
-end
---------------------------------------------------------------------------------
 
 -- private
 --------------------------------------------------------------------------------
