@@ -23,7 +23,7 @@ function setting.getSetting()
     -- 効果音関連
     soundEffect = {
       -- 効果音ディレクトリ
-      path = '~/dotfiles/.hammerspoon/sound_effect/',
+      path = '~/Dropbox/developer/sound_effect/',
 
       -- 長押し対応
       kill = [['killall afplay > /dev/null 2>&1 &']],

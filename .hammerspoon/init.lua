@@ -41,9 +41,12 @@ EVENT.loadEnd()
 -- todo
 
 -- 効果音
+
+
+
 -- imeが日本語時
 -- タブ切り替え時
--- カーソルやエンター
+-- カーソルやエンターで効果音かえる
 -- 長時間連打のコンボ
 
 -- alt tab
@@ -58,3 +61,10 @@ EVENT.loadEnd()
 -- HazeOverやめてdrawingでがんばる
 -- 先ほどいたスペースに戻る
 -- 100coin -> 1up
+
+-- 移植
+-- マウスジェスチャにも使えるかも
+-- https://gist.github.com/kizzx2/e542fa74b80b7563045a
+
+
+-- hotkey 考え直す
