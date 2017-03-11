@@ -17,13 +17,11 @@ end
 function event.spaces()
 end
 
--- フォーカスチェンジ無し
-function event.noChangeFocus()
-end
-
 -- キーダウン
 function event.keyDown(HSObj)
-  SOUND_EFFECT.soundEffect('keyDown')
+  SOUND_EFFECT.soundEffect(privateFunction.keyDown(HSObj))
+  SOUND_EFFECT.soundEffect(privateFunction.keyDownRare(HSObj))
+  SOUND_EFFECT.soundEffect(privateFunction.checkOneUp(HSObj))
   privateFunction.focusLightOff()
 end
 
@@ -40,7 +38,7 @@ end
 
 -- ロード完了
 function event.loadEnd()
-  SOUND_EFFECT.soundEffect('loadEnd')
+  SOUND_EFFECT.soundEffect('load_end')
   hs.alert.show(AA['loadEnd'])
 end
 

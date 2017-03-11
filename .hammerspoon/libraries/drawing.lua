@@ -35,10 +35,24 @@ function drawing.reDrawing()
   -- 枠線表示
   drawing.show(drawing.object)
 end
+--------------------------------------------------------------------------------
 
+-- private
 --------------------------------------------------------------------------------
 -- 枠線作成
 function drawing.createDrawngObject(drawingSize, width, color)
+
+  if drawingSize == nil then
+    return
+  end
+
+  if width == nil then
+    return
+  end
+
+  if color == nil then
+    return
+  end
 
   -- 枠線サイズ
   drawing.object = drawing.rectangle(drawingSize)
@@ -78,8 +92,6 @@ function drawing.getRandomBorderColor()
   return borderColor
 end
 
--- private
---------------------------------------------------------------------------------
 -- 枠線
 function drawing.rectangle(drawingSize)
   return hs.drawing.rectangle(

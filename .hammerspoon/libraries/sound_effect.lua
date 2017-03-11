@@ -44,7 +44,11 @@ function soundEffectLibrary.soundEffect(type)
   end
 
   if soundFlg == false then
-    return value
+    return
+  end
+
+  if #soundEffectLibrary.targetList[type] == 0 then
+    return
   end
 
   soundEffectLibrary.killCount = soundEffectLibrary.killCount + 1

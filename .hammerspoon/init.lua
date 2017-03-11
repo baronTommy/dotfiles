@@ -40,31 +40,20 @@ EVENT.loadEnd()
 
 -- todo
 
--- 効果音
-
-
-
--- imeが日本語時
--- タブ切り替え時
+-- imeが日本語時の効果音
+-- タブ切り替え時の効果音
 -- カーソルやエンターで効果音かえる
--- 長時間連打のコンボ
 
 -- alt tab
 -- http://www.hammerspoon.org/docs/hs.window.switcher.html
 -- http://www.hammerspoon.org/docs/hs.expose.html
 
--- タブ変更やウィンドウ変更などの処理前 & 処理後に 処理を入れる
 -- TextScrubのようなクリップボードに対しての正規表現
-
--- マウスジャンプ 左のキーでざっくり
+-- マウスジャンプ 左のキーでざっくり移動
 -- alert でクリップボードとかの通知
 -- HazeOverやめてdrawingでがんばる
 -- 先ほどいたスペースに戻る
--- 100coin -> 1up
 
 -- 移植
 -- マウスジェスチャにも使えるかも
 -- https://gist.github.com/kizzx2/e542fa74b80b7563045a
-
-
--- hotkey 考え直す

@@ -70,6 +70,9 @@ end
 -- ウィンドウのサイズ
 function defaultFunction.getWindowSize(window)
   window = window or defaultFunction.getFocusedWindow()
+  if window == nil then
+    return
+  end
   return {
     window:topLeft().x,
     window:topLeft().y,

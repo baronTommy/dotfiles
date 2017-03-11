@@ -14,7 +14,7 @@ function eventWatchManager.init(manager)
   eventWatchManager.spacesWatcher:start()
 
   -- キーダウン
-  eventWatchManager.HSKeyEventDownWatcher = hs.eventtap.new({hs.eventtap.event.types.keyDown},eventWatchManager.HSKeyEventDown)
+  eventWatchManager.HSKeyEventDownWatcher = hs.eventtap.new({hs.eventtap.event.types.keyUp},eventWatchManager.HSKeyEventDown)
   eventWatchManager.HSKeyEventDownWatcher:start()
 
   -- 左クリック
