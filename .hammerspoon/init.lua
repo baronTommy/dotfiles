@@ -57,3 +57,10 @@ EVENT.loadEnd()
 -- 移植
 -- マウスジェスチャにも使えるかも
 -- https://gist.github.com/kizzx2/e542fa74b80b7563045a
+
+-- D&Dでフォーカス解除
+
+
+-- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
+--   hs.reload()
+-- end)
