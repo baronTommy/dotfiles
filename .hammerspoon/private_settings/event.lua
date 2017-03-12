@@ -55,7 +55,6 @@ end
 -- ディスプレイ移動
 function event.moveDisplayWindow()
   privateFunction.focusLightOff()
-  privateFunction.focusLightOn()
 end
 
 return event
