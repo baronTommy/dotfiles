@@ -16,6 +16,7 @@ function urleventManager.init(init)
   -- ディスプレイ移動
   hs.urlevent.bind("moveDisplayWindow", function(eventName, params)
       init.windowManager.moveDisplayWindow(params["directionKey"])
+      EVENT.moveDisplayWindow()
     end)
 end
 --------------------------------------------------------------------------------

@@ -52,4 +52,10 @@ function event.movedMouse()
   privateFunction.focusLightOff()
 end
 
+-- ディスプレイ移動
+function event.moveDisplayWindow()
+  privateFunction.focusLightOff()
+  privateFunction.focusLightOn()
+end
+
 return event
