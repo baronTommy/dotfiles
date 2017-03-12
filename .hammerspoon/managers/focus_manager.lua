@@ -11,7 +11,13 @@ function focusManager.focusWindow(directionKey)
   if beforeFocusedWindow == nil then
     return
   end
-  beforeFocusedWindow['focusWindow' .. DEFAULT_FUNCTION.conversionDirection(directionKey)](beforeFocusedWindow, nil, true, true)
+
+  for k,v in pairs(hs.window['windowsTo'.. DEFAULT_FUNCTION.conversionDirection(directionKey)]()) do
+    if v:title() ~= '' then
+      hs.window.focus(v)
+      break
+    end
+  end
 
   if DEFAULT_FUNCTION.checkfocusMove(directionKey, beforeFocusedWindow) then
   end
@@ -19,7 +25,7 @@ end
 
 -- フォーカスウィンドウ変更処理
 function focusManager.updateFocusedWindow()
-  local focusedWindow =  DEFAULT_FUNCTION.getFocusedWindow()
+  local focusedWindow = DEFAULT_FUNCTION.getFocusedWindow()
   local newFocusedWindowFlg = true
 
   if focusManager.getpreviousFocusedWindow() == focusedWindow then
@@ -35,6 +41,7 @@ function focusManager.updateFocusedWindow()
   if newFocusedWindowFlg then
     focusManager.newFocusedWindowEvent()
   end
+
   focusManager.setPreviousFocusedWindow(focusedWindow)
 end
 --------------------------------------------------------------------------------

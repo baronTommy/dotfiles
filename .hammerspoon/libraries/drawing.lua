@@ -1,20 +1,36 @@
 local drawing = {}
 
-drawing.object = nil
-
--- 枠線の色のキー名
-drawing.drawingColorKeys = {
-  'red','blue','green'
-}
+-- 枠線
+drawing.objectDrawing = nil
 
 -- public
 --------------------------------------------------------------------------------
 -- 枠線削除 & 枠線表示
 function drawing.reDrawing()
   -- 枠線削除
-  drawing.delete(drawing.object)
+  drawing.delete(drawing.objectDrawing)
 
-  local fw = DEFAULT_FUNCTION.getFocusedWindow()
+  drawing.objectDrawing = drawing.create(
+    DEFAULT_FUNCTION.getFocusedWindow(),
+    false,
+    DEFAULT_FUNCTION.getWindowSize(),
+    drawing.getRandomBorderColor(),
+    nil,
+    SETTING['drawing']['normalBorderWidth']
+  )
+
+  if drawing.objectDrawing then
+    -- 枠線表示
+    drawing.show(drawing.objectDrawing)
+  end
+end
+
+--------------------------------------------------------------------------------
+
+-- private
+--------------------------------------------------------------------------------
+-- 枠線作成
+function drawing.create(fw, fill, drawingSize, color, fillColor, width)
   if fw == nil then
     -- 対象ウィンドウ無し
     return false
@@ -25,58 +41,52 @@ function drawing.reDrawing()
     return false
   end
 
-  -- 枠線作成
-  drawing.drawingObject = drawing.createDrawngObject(
-    DEFAULT_FUNCTION.getWindowSize(),
-    SETTING['drawing']['normalBorderWidth'],
-    drawing.getRandomBorderColor()
-  )
-
-  -- 枠線表示
-  drawing.show(drawing.object)
-end
---------------------------------------------------------------------------------
-
--- private
---------------------------------------------------------------------------------
--- 枠線作成
-function drawing.createDrawngObject(drawingSize, width, color)
-
   if drawingSize == nil then
-    return
+    return false
   end
 
   if width == nil then
-    return
+    return false
   end
 
   if color == nil then
-    return
+    return false
   end
 
+  local drawingObj = nil
+
   -- 枠線サイズ
-  drawing.object = drawing.rectangle(drawingSize)
+  drawingObj = drawing.rectangle(drawingSize)
 
   -- 枠線 太さ
-  drawing.object:setStrokeWidth(width)
+  drawingObj:setStrokeWidth(width)
 
   -- 枠線 色
-  drawing.object:setStrokeColor(color)
+  drawingObj:setStrokeColor(color)
 
   -- 塗りつぶし
-  drawing.object:setFill(false)
+  drawingObj:setFill(fill)
 
-  return drawing.object
+  -- 塗りつぶし色
+  if fillColor then
+    drawingObj:setFillColor(fillColor)
+  end
+
+  return drawingObj
 end
 
 -- 枠線表示
 function drawing.show(drawingObject)
-  drawingObject:show()
+  if drawingObject then
+    drawingObject:show()
+    return true
+  end
+  return false
 end
 
 -- 枠線削除
 function drawing.delete(drawingObject)
-  if (drawingObject) then
+  if drawingObject then
     drawingObject:delete()
     return true
   end
