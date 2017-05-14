@@ -1,2 +1,5 @@
 .DS_Store
 
+# Symbolic link -> unnecessary ->  /
+.hammerspoon/hammerspoon_helper
+
