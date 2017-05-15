@@ -49,17 +49,7 @@ hs.alert('load end')
 
 -- todo
 --------------- --------------- --------------- ---------------
--- bitcoin paypal hotkeyをetcに readme
--- todo
---
--- Hammerspoon Spoons
---
--- T***********
--- > Coming Soon
---
--- L***
--- > Coming Soon
-
+-- D&Dの時振動やめる
 
 
 
