@@ -46,7 +46,7 @@ Cron.windowWatcher = function()
 
   if Cron:isNewFocus() then
     HS_H.drawing:windowGridLineDelete()
-    HS_H.window:vibrate({tremor = 'high'})
+    HS_H.window:vibrate({tremor = 'middle'})
     return
   end
 end
