@@ -10,32 +10,46 @@ hs.urlevent.bind('move_window_position_to_other_display', function(eventName, pa
     MY_HS_H.window:moveDisplay(parameter)
   end)
 
-hs.urlevent.bind('sync_move_desktop', function(eventName, parameter)
-    -- ウィンドウ移動
-    ------------------------------------------------
-    P(HS_H.api:call({call = 'get_display_id'}).apiResult)
+hs.urlevent.bind('move_desktop_together', function(eventName, parameter)
+    HS_H.drawing:windowGridLineDelete()
+    WINDOW_WATCHER:stop()
+    HS_H.desktop:moveDesktopTogether(parameter)
+    WINDOW_WATCHER:start()
+  end)
 
-    ------------------------------------------------
+hs.urlevent.bind('move_window_to_other_desktop', function(eventName, parameter)
+    WINDOW_WATCHER:stop()
+
+    local targetWindow = hs.window.focusedWindow()
+
+    HS_H.desktop:moveWindowToOtherDesktop(parameter)
+
+    -- local aa = HS_H.desktop:moveDesktopTogether(parameter)
+    --
+    -- if aa.isValid and aa.isExec then
+    --
+    --   local function sleepOne()
+    --     local start = os.time()
+    --     while os.time() - start < 0.5 do end
+    --   end
+    --   sleepOne()
+    --   for k,v in pairs(hs.window.allWindows()) do
+    --     if v:id() == targetWindow:id() then
+    --       hs.window.focus(v)
+    --       MY_HS_H.window:moveDisplay({direction = "right"})
+    --       break
+    --     end
+    --   end
+    --
+    --
+    -- end
 
 
-    -- 全部のデスクトップ移動
-    ------------------------------------------------
-    -- local goToDesktopId = parameter.desktop_id
-    --
-    -- local commandModel = [[\
-    -- ruby -r totalspaces2 \
-    -- -e 'TotalSpaces2.display_list.each do |v| TotalSpaces2.move_to_space_on_display('$desktopId', v[:display_id]) end'
-    -- ]]
-    --
-    -- local replace = {
-    --   desktopId = goToDesktopId,
-    -- }
-    --
-    -- local command = commandModel:gsub('$(%w+)', replace)
-    --
-    -- io.popen(command)
-    ------------------------------------------------
+    WINDOW_WATCHER:start()
+  end)
 
+
+hs.urlevent.bind('xxx', function(eventName, parameter)
     -- アクティブウィンドウがあるデスクトップ移動
     ------------------------------------------------
     -- local goToDesktopId = parameter.desktop_id
