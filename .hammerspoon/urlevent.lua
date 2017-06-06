@@ -18,11 +18,37 @@ hs.urlevent.bind('move_desktop_together', function(eventName, parameter)
   end)
 
 hs.urlevent.bind('move_window_to_other_desktop', function(eventName, parameter)
-    WINDOW_WATCHER:stop()
 
-    local targetWindow = hs.window.focusedWindow()
+    local function sleepOne()
+      local start = os.time()
+      while os.time() - start < 0.3 do end
+    end
+
+
+    windowPPP = hs.window.focusedWindow()
+
+    -- 指定のdisplay位置に戻す
+    local position = {
+      windowPPP:topLeft().x,
+      windowPPP:topLeft().y,
+      windowPPP:size().w,
+      windowPPP:size().h
+    }
 
     HS_H.desktop:moveWindowToOtherDesktop(parameter)
+    sleepOne()
+
+    -- 必須
+    HS_H.desktop:moveDesktopTogether(parameter)
+
+    sleepOne()
+    windowPPP:setFrame(position)
+
+
+P(D(position))
+
+    -- WINDOW_WATCHER:stop()
+    -- HS_H.desktop:moveWindowToOtherDesktop(parameter)
 
     -- local aa = HS_H.desktop:moveDesktopTogether(parameter)
     --
