@@ -2,7 +2,11 @@
 set nocompatible
 
 " 文字コード
-set fenc=utf-8
+set encoding=utf-8
+
+" シンタックスを明示的に有効化
+set syntax=enable
+
 
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
@@ -17,12 +21,23 @@ set cursorline
 set list
 
 " 不可視文字の設定
+" タブ
 " set listchars+=tab:^-
-set listchars+=eol:⏎
-set listchars+=space:_
-set listchars+=trail:_
-set listchars+=extends:«
-set listchars+=precedes:»
+" 改行
+" set listchars+=eol:⏎
+" スペース
+" set listchars+=space:_
+" 行末スペース
+" set listchars+=trail:_
+" 折り返し
+" set listchars+=extends:«
+" set listchars+=precedes:»
+
+set listchars+=extends:>
+set listchars+=precedes:<
+
+" xxx
+
 
 " tabをスペースに
 set expandtab
