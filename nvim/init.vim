@@ -7,7 +7,6 @@ set encoding=utf-8
 " シンタックスを明示的に有効化
 set syntax=enable
 
-
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
 
@@ -15,29 +14,13 @@ set hidden
 set showcmd
 
 " 現在の行を強調表示
-set cursorline
+"set cursorline
 
-" 不可視文字を表示
-set list
+" 折り返し無し
+set nowrap
 
-" 不可視文字の設定
-" タブ
-" set listchars+=tab:^-
-" 改行
-" set listchars+=eol:⏎
-" スペース
-" set listchars+=space:_
-" 行末スペース
-" set listchars+=trail:_
-" 折り返し
-" set listchars+=extends:«
-" set listchars+=precedes:»
-
-set listchars+=extends:>
-set listchars+=precedes:<
-
-" xxx
-
+" 長い行の場合 続きがあることを示す
+set listchars+=extends:»
 
 " tabをスペースに
 set expandtab
@@ -75,6 +58,10 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
+" 表示の色がいい感じ (ターミナルが対応している必要がある)
+set termguicolors
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
