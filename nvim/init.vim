@@ -66,9 +66,16 @@ set termguicolors
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 折り返し時に表示行単位での移動できるようにする
+
+" 見たまま移動
 nnoremap j gj
 nnoremap k gk
 
+" 設定再読み込み
+nmap <C-j><C-r> :source $XDG_CONFIG_HOME/nvim/init.vim<CR>:e!<CR><Esc>
+
+" ファイル開く
+nmap <C-j><C-e> :edit<Space>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deinインストールディレクトリ
 let s:dein_dir = $XDG_CACHE_HOME . '/dein'
