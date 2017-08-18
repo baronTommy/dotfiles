@@ -1,3 +1,11 @@
+" http://help.adobe.com/ja_JP/AS2LCR/Flash_10.0/help.html?content=00000525.html
+" s 115
+" d 100
+" f 102
+" e 101
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " vi互換 off
 set nocompatible
 
@@ -72,10 +80,36 @@ nnoremap j gj
 nnoremap k gk
 
 " 設定再読み込み
-nmap <C-j><C-r> :source $XDG_CONFIG_HOME/nvim/init.vim<CR>:e!<CR><Esc>
+nnoremap <C-j><C-r> :source $XDG_CONFIG_HOME/nvim/init.vim<CR>:e!<CR><Esc>
 
 " ファイル開く
-nmap <C-j><C-e> :edit<Space>
+nnoremap <C-j><C-e> :edit<Space>
+
+" バッファ
+nnoremap <C-b>q :bd<CR>
+nnoremap <C-b><C-n> :enew<Space>
+nnoremap <C-b><C-l> :buffers<CR>:b<Space>
+
+" ウィンドウ
+nnoremap <C-w>q :close<CR>
+nnoremap <C-w>o :only<CR>
+nnoremap <C-w><C-n> :vsplit<Space>
+nnoremap <C-w><C-m> :split<Space>
+nnoremap <C-w><C-s> <C-w>h
+nnoremap <C-w><C-d> <C-w>j
+nnoremap <C-w><C-f> <C-w>l
+nnoremap <C-w><C-e> <C-w>k
+nnoremap <C-w>s <C-w><S-h>
+nnoremap <C-w>d <C-w><S-j>
+nnoremap <C-w>f <C-w><S-l>
+nnoremap <C-w>e <C-w><S-k>
+
+nnoremap <C-w><C-w> :WinResizerStartResize<CR>
+let g:winresizer_keycode_left = 115
+let g:winresizer_keycode_right = 102
+let g:winresizer_keycode_down = 100
+let g:winresizer_keycode_up = 101
+let g:winresizer_keycode_mode = 116
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deinインストールディレクトリ
 let s:dein_dir = $XDG_CACHE_HOME . '/dein'
