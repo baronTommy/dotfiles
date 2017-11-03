@@ -69,9 +69,6 @@ set hlsearch
 " 表示の色がいい感じ (ターミナルが対応している必要がある)
 set termguicolors
 
-# markdow
-autocmd BufNewFile,BufRead *.md :set filetype=markdown
-let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php', 'bash=sh']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " ESC連打でハイライト解除
@@ -165,3 +162,7 @@ call denite#custom#source('grep', 'args', ['', '', '!'])
 " call denite#custom#source('grep', 'args', ['./doc'])
 " :Denite grep -auto-preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" markdow
+autocmd BufNewFile,BufRead *.md :set filetype=markdown
+let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php', 'bash=sh']
