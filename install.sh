@@ -14,3 +14,14 @@ ln -s ~/dotfiles/.bash_profile ~/.
 # new-filet-o-fish
 git clone https://github.com/baronTommy/new-filet-o-fish.git ~/new-filet-o-fish
 ln -s ~/new-filet-o-fish/hammerspoon_helper ~/.hammerspoon/.
+
+# fish
+ln -s ~/dotfiles/fish ~/.config
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+
+
+# コマンドラインお助け
+git clone https://github.com/andreafrancia/trash-cli.git
+cd trash-cli
+sudo python setup.py install
+
