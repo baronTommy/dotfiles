@@ -2,3 +2,9 @@
 repo = 'Shougo/denite.nvim'
 # 初回はこのコマンド
 # :UpdateRemotePlugins
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'tpope/vim-markdown'

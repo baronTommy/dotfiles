@@ -1,8 +1,19 @@
+" http://help.adobe.com/ja_JP/AS2LCR/Flash_10.0/help.html?content=00000525.html
+" s 115
+" d 100
+" f 102
+" e 101
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " vi互換 off
 set nocompatible
 
 " 文字コード
-set fenc=utf-8
+set encoding=utf-8
+
+" シンタックスを明示的に有効化
+set syntax=enable
 
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
@@ -11,18 +22,13 @@ set hidden
 set showcmd
 
 " 現在の行を強調表示
-set cursorline
+"set cursorline
 
-" 不可視文字を表示
-set list
+" 折り返し無し
+set nowrap
 
-" 不可視文字の設定
-" set listchars+=tab:^-
-set listchars+=eol:⏎
-set listchars+=space:_
-set listchars+=trail:_
-set listchars+=extends:«
-set listchars+=precedes:»
+" 長い行の場合 続きがあることを示す
+set listchars+=extends:»
 
 " tabをスペースに
 set expandtab
@@ -60,13 +66,50 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 
+" 表示の色がいい感じ (ターミナルが対応している必要がある)
+set termguicolors
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 折り返し時に表示行単位での移動できるようにする
+
+" 見たまま移動
 nnoremap j gj
 nnoremap k gk
 
+" 設定再読み込み
+nnoremap <C-j><C-r> :source $XDG_CONFIG_HOME/nvim/init.vim<CR>:e!<CR><Esc>
+
+" ファイル開く
+nnoremap <C-j><C-e> :edit<Space>
+
+" バッファ
+nnoremap <C-b>q :bd<CR>
+nnoremap <C-b><C-n> :enew<Space>
+nnoremap <C-b><C-l> :buffers<CR>:b<Space>
+
+" ウィンドウ
+nnoremap <C-w>q :close<CR>
+nnoremap <C-w>o :only<CR>
+nnoremap <C-w><C-n> :vsplit<Space>
+nnoremap <C-w><C-m> :split<Space>
+nnoremap <C-w><C-s> <C-w>h
+nnoremap <C-w><C-d> <C-w>j
+nnoremap <C-w><C-f> <C-w>l
+nnoremap <C-w><C-e> <C-w>k
+nnoremap <C-w>s <C-w><S-h>
+nnoremap <C-w>d <C-w><S-j>
+nnoremap <C-w>f <C-w><S-l>
+nnoremap <C-w>e <C-w><S-k>
+
+nnoremap <C-w><C-w> :WinResizerStartResize<CR>
+let g:winresizer_keycode_left = 115
+let g:winresizer_keycode_right = 102
+let g:winresizer_keycode_down = 100
+let g:winresizer_keycode_up = 101
+let g:winresizer_keycode_mode = 116
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deinインストールディレクトリ
 let s:dein_dir = $XDG_CACHE_HOME . '/dein'
@@ -119,3 +162,7 @@ call denite#custom#source('grep', 'args', ['', '', '!'])
 " call denite#custom#source('grep', 'args', ['./doc'])
 " :Denite grep -auto-preview
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" markdow
+autocmd BufNewFile,BufRead *.md :set filetype=markdown
+let g:markdown_fenced_languages = ['css', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'php', 'bash=sh']
