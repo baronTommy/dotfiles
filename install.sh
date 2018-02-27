@@ -27,3 +27,8 @@ curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fishe
 git clone https://github.com/andreafrancia/trash-cli.git
 cd trash-cli
 sudo python setup.py install
+
+# powerline
+# git clone https://github.com/powerline/fonts.git
+# fonts/install.sh
+# rm -rf fonts
