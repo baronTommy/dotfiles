@@ -1,1 +1,3 @@
-/Users/tommy/.config/fisherman/bobthefish/fish_greeting.fish
+function fish_greeting
+    echo (whoami) !!
+end
