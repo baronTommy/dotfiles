@@ -1,30 +1,45 @@
-function __echo --argument v prefixFlg
-  if test -z $prefixFlg;
-    set prefixFlg false
+function __echo --argument v setColor
+  if test -z $setColor;
+    set setColor normal
   end
 
-  set -l prefix \t
-  if test $prefixFlg = true;
-    echo -n $prefix
-  end
-
-  echo $v
+  set_color -o $setColor
+  echo -e $v;
+  set_color normal
 end
 
-function __breakLine
-  __echo '' false
+function __blankLine
+  __echo ''
+end
+
+function __starLine
+  __echo '★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★' brblack
+end
+
+function __currentDatetime
+  __echo 'Current datetime is ...' green
+  __echo '🗓️  '(date +'%Y-%m-%d %H:%M:%S')
+end
+
+function __currentDirectory
+  __echo 'Current Directory is ...' yellow
+  __echo '📁  '(pwd)
+end
+
+function __whoAmI
+  __echo 'Login User is ...' magenta
+  __echo '👽  '(whoami)
 end
 
 function fish_greeting
-  __echo 'Current time is ...'
-  __echo (date +'%Y-%m-%d %H:%M:%S') true
-  __breakLine
+  __starLine
 
-  __echo 'Current Directory is ...'
-  __echo (pwd) true
-  __breakLine
+  __currentDatetime
+  __blankLine
 
-  __echo 'Login User is ...'
-  __echo (whoami) true
-  __breakLine
+  __currentDirectory
+  __blankLine
+
+  __whoAmI
+  __starLine
 end
