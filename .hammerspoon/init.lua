@@ -36,6 +36,8 @@ HS_H = boot:commandActivation('All')
 MY_HS_H = boot:usrCommandActivation('All')
 
 require('./urlevent')
+require('./hotkey')
+
 
 local cron = require('./cron').new()
 cron:init()
