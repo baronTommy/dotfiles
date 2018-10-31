@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@angular/cli": "^6.2.2",
+    "@ngrx/schematics": "^6.1.0",
+    "create-next-app": "^0.5.9",
+    "create-nuxt-app": "^2.1.1",
+    "create-react-app": "^1.5.2",
+    "firebase-tools": "^4.2.1",
+    "hexo": "^3.7.1",
+    "react-native-cli": "^2.0.1"
+  }
+}

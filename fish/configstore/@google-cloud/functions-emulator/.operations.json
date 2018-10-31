@@ -1,0 +1,224 @@
+{
+	"operations/4916374f-b5a8-4056-9085-01e5e8207e46": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/api",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CreateFunctionRequest",
+					"value": {
+						"location": "projects/playground-7c2a9/locations/us-central1",
+						"function": {
+							"name": "projects/playground-7c2a9/locations/us-central1/functions/api",
+							"timeout": {
+								"seconds": 540
+							},
+							"entryPoint": "api",
+							"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-21808yXpatggWUb8r.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+							"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-21808yXpatggWUb8r.zip",
+							"httpsTrigger": {}
+						}
+					}
+				}
+			}
+		},
+		"name": "operations/4916374f-b5a8-4056-9085-01e5e8207e46",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CloudFunction",
+			"value": {
+				"name": "projects/playground-7c2a9/locations/us-central1/functions/api",
+				"timeout": {
+					"seconds": 540
+				},
+				"entryPoint": "api",
+				"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-21808yXpatggWUb8r.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+				"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-21808yXpatggWUb8r.zip",
+				"httpsTrigger": {
+					"url": "http://localhost:5000/playground-7c2a9/us-central1/api"
+				},
+				"status": "READY",
+				"latestOperation": "operations/4916374f-b5a8-4056-9085-01e5e8207e46",
+				"availableMemoryMb": 68719
+			}
+		}
+	},
+	"operations/02f28ca7-8602-4e4c-9c2f-be0a6a60c446": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CreateFunctionRequest",
+					"value": {
+						"location": "projects/playground-7c2a9/locations/us-central1",
+						"function": {
+							"name": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+							"timeout": {
+								"seconds": 540
+							},
+							"entryPoint": "helloWorld",
+							"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-22813S9VXyMzu6prs.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+							"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-22813S9VXyMzu6prs.zip",
+							"httpsTrigger": {}
+						}
+					}
+				}
+			}
+		},
+		"name": "operations/02f28ca7-8602-4e4c-9c2f-be0a6a60c446",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CloudFunction",
+			"value": {
+				"name": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+				"timeout": {
+					"seconds": 540
+				},
+				"entryPoint": "helloWorld",
+				"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-22813S9VXyMzu6prs.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+				"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-22813S9VXyMzu6prs.zip",
+				"httpsTrigger": {
+					"url": "http://localhost:5000/playground-7c2a9/us-central1/helloWorld"
+				},
+				"status": "READY",
+				"latestOperation": "operations/02f28ca7-8602-4e4c-9c2f-be0a6a60c446",
+				"availableMemoryMb": 68719
+			}
+		}
+	},
+	"operations/3f55c5ef-433e-402b-afa5-2169df6809ea": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.DeleteFunctionRequest",
+					"value": {
+						"name": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld"
+					}
+				}
+			}
+		},
+		"name": "operations/3f55c5ef-433e-402b-afa5-2169df6809ea",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.protobuf.Empty",
+			"value": {}
+		}
+	},
+	"operations/6819998d-50e2-4def-9dd6-c4df45625765": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CreateFunctionRequest",
+					"value": {
+						"location": "projects/playground-7c2a9/locations/us-central1",
+						"function": {
+							"name": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+							"timeout": {
+								"seconds": 540
+							},
+							"entryPoint": "helloWorld",
+							"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-22999XIbzGssgeMQf.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+							"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-22999XIbzGssgeMQf.zip",
+							"httpsTrigger": {}
+						}
+					}
+				}
+			}
+		},
+		"name": "operations/6819998d-50e2-4def-9dd6-c4df45625765",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CloudFunction",
+			"value": {
+				"name": "projects/playground-7c2a9/locations/us-central1/functions/helloWorld",
+				"timeout": {
+					"seconds": 540
+				},
+				"entryPoint": "helloWorld",
+				"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-22999XIbzGssgeMQf.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+				"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-22999XIbzGssgeMQf.zip",
+				"httpsTrigger": {
+					"url": "http://localhost:5000/playground-7c2a9/us-central1/helloWorld"
+				},
+				"status": "READY",
+				"latestOperation": "operations/6819998d-50e2-4def-9dd6-c4df45625765",
+				"availableMemoryMb": 68719
+			}
+		}
+	},
+	"operations/16c182d8-fd71-4818-aab7-78fbbf67a252": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/api",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.DeleteFunctionRequest",
+					"value": {
+						"name": "projects/playground-7c2a9/locations/us-central1/functions/api"
+					}
+				}
+			}
+		},
+		"name": "operations/16c182d8-fd71-4818-aab7-78fbbf67a252",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.protobuf.Empty",
+			"value": {}
+		}
+	},
+	"operations/be008d92-0d0b-4cf4-b68a-c1cd511fdb24": {
+		"done": true,
+		"metadata": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.OperationMetadataV1Beta2",
+			"value": {
+				"target": "projects/playground-7c2a9/locations/us-central1/functions/api",
+				"type": 1,
+				"request": {
+					"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CreateFunctionRequest",
+					"value": {
+						"location": "projects/playground-7c2a9/locations/us-central1",
+						"function": {
+							"name": "projects/playground-7c2a9/locations/us-central1/functions/api",
+							"timeout": {
+								"seconds": 540
+							},
+							"entryPoint": "api",
+							"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-23367kENMqSWohT58.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+							"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-23367kENMqSWohT58.zip",
+							"httpsTrigger": {}
+						}
+					}
+				}
+			}
+		},
+		"name": "operations/be008d92-0d0b-4cf4-b68a-c1cd511fdb24",
+		"response": {
+			"typeUrl": "types.googleapis.com/google.cloud.functions.v1beta2.CloudFunction",
+			"value": {
+				"name": "projects/playground-7c2a9/locations/us-central1/functions/api",
+				"timeout": {
+					"seconds": 540
+				},
+				"entryPoint": "api",
+				"sourceUploadUrl": "http://localhost:5001/upload?archive=%2Fvar%2Ffolders%2Fwm%2Frkzrwrrx17lgpsyl73g0f42c0000gn%2FT%2Ftmp-23367kENMqSWohT58.zip&localdir=%2FVolumes%2Fworkspace%2Ffirebase_functions%2Ffunctions",
+				"sourceArchiveUrl": "file:///var/folders/wm/rkzrwrrx17lgpsyl73g0f42c0000gn/T/tmp-23367kENMqSWohT58.zip",
+				"httpsTrigger": {
+					"url": "http://localhost:5000/playground-7c2a9/us-central1/api"
+				},
+				"status": "READY",
+				"latestOperation": "operations/be008d92-0d0b-4cf4-b68a-c1cd511fdb24",
+				"availableMemoryMb": 68719
+			}
+		}
+	}
+}
