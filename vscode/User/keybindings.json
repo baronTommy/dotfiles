@@ -11,11 +11,23 @@
         "command": "workbench.action.previousEditorInGroup"
     },
     {
-        // 保存時にtask 実行
+        // 保存時にtask 実行 (通常状態)
         "key": "cmd+s",
         "command": "workbench.action.tasks.runTask",
-        // ワークスペース
-        "when": "workspaceFolderCount != 0", 
+        "when": "workspaceFolderCount != 0 && !inDebugMode", 
         "args": "save_hook"
     },
+    {
+        // 保存時にtask 実行 (デバッグ中)
+        // デバッグ中はテスト流さない などのハンドリングに利用
+        "key": "cmd+s",
+        "command": "workbench.action.tasks.runTask",
+        "when": "workspaceFolderCount != 0 && inDebugMode",
+        "args": "save_hook_debug"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "workbench.action.debug.start",
+        "args": "vscode-jest-test"
+    }
 ]
