@@ -36,7 +36,7 @@ hs.hotkey.bind({}, 'pad*', function()
 end)
 
 ----------------------------------------------------------------
-hs.hotkey.bind({'ctrl'}, 'pad0', function() hs.eventtap.keyStroke({}, 'f13') end)
+hs.hotkey.bind({'ctrl'}, 'pad0', function() hs.eventtap.keyStroke({'ctrl', 'shift', 'option', 'cmd'}, 'F') end)
 
 hs.hotkey.bind({'ctrl'}, 'pad1', function() goToDeskTop(1) end)
 hs.hotkey.bind({'ctrl'}, 'pad2', function() goToDeskTop(2) end)
