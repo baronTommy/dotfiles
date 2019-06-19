@@ -4,7 +4,6 @@
 ln -s ~/dotfiles/.bash_profile ~/.
 source ~/.bash_profile
 
-mkdir -p $XDG_CONFIG_HOME
 mkdir -p $XDG_CONFIG_HOME/fish
 ln -s ~/dotfiles/fish/fishfile $XDG_CONFIG_HOME/fish/.
 ln -s ~/dotfiles/fish/functions/fzf_z.fish $XDG_CONFIG_HOME/fish/functions/.
@@ -15,6 +14,10 @@ brew install fish
 brew install fzf
 brew install ghq
 
-# fish & fisher
+# fish
+# manから補完
+fish -c fish_update_completions
+
+# fish -c fish_update_completions
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fish -c fisher
