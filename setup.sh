@@ -13,6 +13,7 @@ ln -s ~/dotfiles/fish/conf.d/key_bindings.fish $XDG_CONFIG_HOME/fish/conf.d/.
 brew install fish
 brew install fzf
 brew install ghq
+brew install terminal-notifier
 
 # fish
 # manから補完
@@ -21,3 +22,6 @@ fish -c fish_update_completions
 # fish -c fish_update_completions
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fish -c fisher
+
+# todo
+# rm 置き換え
