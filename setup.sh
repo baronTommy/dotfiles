@@ -5,15 +5,18 @@ ln -s ~/dotfiles/.bash_profile ~/.
 source ~/.bash_profile
 
 mkdir -p $XDG_CONFIG_HOME/fish
+
 ln -s ~/dotfiles/fish/fishfile $XDG_CONFIG_HOME/fish/.
-ln -s ~/dotfiles/fish/functions/fzf_z.fish $XDG_CONFIG_HOME/fish/functions/.
-ln -s ~/dotfiles/fish/conf.d/key_bindings.fish $XDG_CONFIG_HOME/fish/conf.d/.
+ln -s ~/dotfiles/fish/config.fish $XDG_CONFIG_HOME/fish/.
+ln -s ~/dotfiles/fish/functions/* $XDG_CONFIG_HOME/fish/functions/.
+ln -s ~/dotfiles/fish/conf.d/* $XDG_CONFIG_HOME/fish/conf.d/.
 
 # install
 brew install fish
 brew install fzf
 brew install ghq
 brew install terminal-notifier
+brew install exa
 
 # fish
 # manから補完
