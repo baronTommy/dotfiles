@@ -4,7 +4,7 @@
 コマンド履歴
     ctrl + r
 
-ディレクトリ履歴
+ディレクトリ移動
     ctrl + e
 
 gitのリポジトリ移動
@@ -12,4 +12,10 @@ gitのリポジトリ移動
 
 gitのリポジトリ取得
     ghq get xxxx
+```
+
+よく使うコマンド
+```
+grep -r 'methods:' --include='*.vue' './components'
+rg -g '*.vue' 'methods' './components'
 ```

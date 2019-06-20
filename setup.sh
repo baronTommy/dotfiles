@@ -17,6 +17,7 @@ brew install fzf
 brew install ghq
 brew install terminal-notifier
 brew install exa
+brew install bat
 
 # fish
 # manから補完
