@@ -18,6 +18,7 @@ brew install ghq
 brew install terminal-notifier
 brew install exa
 brew install bat
+brew install rust
 
 # fish
 # manから補完
@@ -27,5 +28,3 @@ fish -c fish_update_completions
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 fish -c fisher
 
-# todo
-# rm 置き換え
