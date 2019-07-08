@@ -19,6 +19,10 @@ brew install terminal-notifier
 brew install exa
 brew install bat
 brew install rust
+brew install anyenv
+
+anyenv install pyenv
+anyenv install nodenv
 
 # fish
 # manから補完
