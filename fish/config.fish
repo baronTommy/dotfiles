@@ -1,4 +1,5 @@
-alias l='exa -l'
+alias ll='exa -l'
+alias ls='exa'
 alias cat='bat'
 
 # direnv
