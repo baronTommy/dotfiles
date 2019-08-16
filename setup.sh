@@ -20,7 +20,7 @@ brew install exa
 brew install bat
 brew install rust
 brew install anyenv
-
+brew install lsd
 anyenv install pyenv
 anyenv install nodenv
 
