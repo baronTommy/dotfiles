@@ -17,3 +17,4 @@ eval "$(direnv hook bash)"
 # direnv用エディタ
 export EDITOR=vim
 
+export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
